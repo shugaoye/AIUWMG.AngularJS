@@ -1,0 +1,26 @@
+{
+  "name": "PassJS",
+  "version": "1.0.0",
+  "main": "angular.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "webpack",
+    "build": "browserify -g browserify-css ./app/app.js | uglifyjs > ./js/bundle.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "angular": "^1.7.8",
+    "bootstrap": "^4.3.1",
+    "browserify": "^16.2.3",
+    "browserify-css": "^0.14.0",
+    "css-loader": "^2.1.1",
+    "jquery": "^3.3.1",
+    "style-loader": "^0.23.1",
+    "uglify-js": "^3.5.3",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
