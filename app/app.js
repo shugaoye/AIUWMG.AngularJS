@@ -1,9 +1,9 @@
 require('./app.css')
 require ('angular');
 
-var todoApp = angular.module("todoApp", []);
+var entryDetails = angular.module("entryDetails", []);
 
-todoApp.filter("checkedItems", function () {
+entryDetails.filter("checkedItems", function () {
     return function (items, showComplete) {
         var resultArr = [];
         angular.forEach(items, function (item) {
@@ -16,11 +16,11 @@ todoApp.filter("checkedItems", function () {
 });
 
 function DetailsController ($scope) {
-    $scope.todo = model;
+    $scope.details = model;
 
     $scope.incompleteCount = function () {
         var count = 0;
-        angular.forEach($scope.todo.items, function (item) {
+        angular.forEach($scope.details.items, function (item) {
             if (!item.done) { count++ }
         });
         return count;
@@ -30,13 +30,13 @@ function DetailsController ($scope) {
         return $scope.incompleteCount() < 3 ? "label-success" : "label-warning";
     }
 
-    $scope.addNewItem = function (actionText) {
-        $scope.todo.items.push({ action: actionText, done: false });
+    $scope.addNewItem = function (keyText) {
+        $scope.details.items.push({ key: keyText, done: false });
     }
 
 }
 
 
-todoApp.controller('ToDoCtrl', DetailsController);
+entryDetails.controller('DetailsCtrl', DetailsController);
 
-module.exports = todoApp;
+module.exports = entryDetails;

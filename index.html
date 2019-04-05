@@ -1,44 +1,47 @@
 <!DOCTYPE html>
-<html ng-app="todoApp">
+<html ng-app="entryDetails">
 <head>
-    <title>TO DO List</title>
+    <title>entryDetails</title>
     <script>
         var model = {
-            user: "PassXYZ",
-            items: [{ action: "Username", value: "PassXYZ", done: false },
-                { action: "Password", value: "87654321", done: true },
-                { action: "Mobile", value: "123456789", done: false },
-                { action: "Url", value: "http://passxyz.github.io", done: false }]
+            title: "PassXYZ",
+            items: [{ key: "Username", value: "PassXYZ", isProtect: false, done: false },
+                { key: "Password", value: "87654321", isProtect: true, done: true },
+                { key: "Mobile", value: "123456789", isProtect: false, done: false },
+                { key: "Url", value: "http://passxyz.github.io", isProtect: false, done: false }]
         };
     </script>
     <script src="js/bundle.js"></script>
 </head>
-<body ng-controller="ToDoCtrl">
-    <div class="page-header">
-        <h3>
-            {{todo.user}}'s account information
-            <span class="label label-default" ng-class="warningLevel()"
-                  ng-hide="incompleteCount() == 0">
-                {{incompleteCount()}}
-            </span>
-        </h3>
-    </div>
+<body ng-controller="DetailsCtrl">
     <div class="container">
-        <table class="table table-striped">
+            <h3>
+                    {{details.title}}
+                    <!--
+                    <span class="label label-default" ng-class="warningLevel()"
+                          ng-hide="incompleteCount() == 0">
+                        {{incompleteCount()}}
+                    </span>
+                    -->
+            </h3>
+            <table class="table table-striped">
             <tbody>
                     <tr ng-repeat=
-                        "item in todo.items | checkedItems:showComplete">
-                            <td><b>{{item.action}}</b></td>
+                        "item in details.items">
+                            <td><b>{{item.key}}</b></td>
                             <td ng-hide="item.done">{{item.value}}</td>
                             <td ng-show="item.done"><input type="password" ng-model="item.value" /></td>
-                            <td><input type="checkbox" ng-model="item.done" /></td>
+                            <td ng-show="item.isProtect"><input type="checkbox" ng-model="item.done" /></td>
+                            <td ng-hide="item.isProtect"></td>
                     </tr>
             </tbody>
         </table>
 
+        <!-- 
         <div class="checkbox-inline">
-            <label><input type="checkbox" ng_model="showComplete">Show Password</label>
+            <label><input type="checkbox" ng_model="showComplete" value="true" checked/>Show Password</label>
         </div>
+        -->
     </div>
 
 </body>

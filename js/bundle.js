@@ -4,29 +4,9 @@ var css = "/*!\n * Bootstrap v4.3.1 (https://getbootstrap.com/)\n * Copyright 20
 require('./app.css')
 require ('angular');
 
-var model = {
-    user: "PassXYZ",
-    items: [{ action: "Username", value: "PassXYZ", done: false },
-                { action: "Password", value: "87654321", done: true },
-                { action: "Mobile", value: "123456789", done: false },
-                { action: "Url", value: "http://passxyz.github.io", done: false }]
-};
+var entryDetails = angular.module("entryDetails", []);
 
-var todoApp = angular.module("todoApp", []);
-
-todoApp.filter("checkedItems", function () {
-    return function (items, showComplete) {
-        var resultArr = [];
-        angular.forEach(items, function (item) {
-            if (item.done == false || showComplete == true) {
-                resultArr.push(item);
-            }
-        });
-        return resultArr;
-    }
-});
-
-todoApp.filter("checkedItems", function () {
+entryDetails.filter("checkedItems", function () {
     return function (items, showComplete) {
         var resultArr = [];
         angular.forEach(items, function (item) {
@@ -39,11 +19,11 @@ todoApp.filter("checkedItems", function () {
 });
 
 function DetailsController ($scope) {
-    $scope.todo = model;
+    $scope.details = model;
 
     $scope.incompleteCount = function () {
         var count = 0;
-        angular.forEach($scope.todo.items, function (item) {
+        angular.forEach($scope.details.items, function (item) {
             if (!item.done) { count++ }
         });
         return count;
@@ -53,16 +33,16 @@ function DetailsController ($scope) {
         return $scope.incompleteCount() < 3 ? "label-success" : "label-warning";
     }
 
-    $scope.addNewItem = function (actionText) {
-        $scope.todo.items.push({ action: actionText, done: false });
+    $scope.addNewItem = function (keyText) {
+        $scope.details.items.push({ key: keyText, done: false });
     }
 
 }
 
 
-todoApp.controller('ToDoCtrl', DetailsController);
+entryDetails.controller('DetailsCtrl', DetailsController);
 
-module.exports = todoApp;
+module.exports = entryDetails;
 },{"./app.css":1,"angular":4}],3:[function(require,module,exports){
 /**
  * @license AngularJS v1.7.8
