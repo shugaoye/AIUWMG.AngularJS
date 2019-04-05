@@ -4,11 +4,11 @@
   "main": "angular.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle": "webpack",
+    "build-dev": "browserify -g browserify-css ./app/app.js > ./js/bundle.js",
     "build": "browserify -g browserify-css ./app/app.js | uglifyjs > ./js/bundle.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Roger Ye",
   "license": "ISC",
   "description": "AIUWMG build for AngularJS",
   "repository": {
