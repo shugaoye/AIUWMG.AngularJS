@@ -5,10 +5,11 @@
     <script>
         var model = {
             title: "PassXYZ",
-            items: [{ key: "Username", value: "PassXYZ", isProtect: false, done: false },
-                { key: "Password", value: "87654321", isProtect: true, done: true },
-                { key: "Mobile", value: "123456789", isProtect: false, done: false },
-                { key: "Url", value: "http://passxyz.github.io", isProtect: false, done: false }]
+            items: [{ key: "Username", value: "PassXYZ", isProtected: false, isHidden: false },
+                { key: "Password", value: "87654321", isProtected: true, isHidden: true },
+                { key: "Mobile", value: "123456789", isProtected: false, isHidden: false },
+                { key: "PIN", value: "1234", isProtected: true, isHidden: true },
+                { key: "Url", value: "http://passxyz.github.io", isProtected: false, isHidden: false }]
         };
     </script>
     <script src="js/bundle.js"></script>
@@ -29,10 +30,10 @@
                     <tr ng-repeat=
                         "item in details.items">
                             <td><b>{{item.key}}</b></td>
-                            <td ng-hide="item.done">{{item.value}}</td>
-                            <td ng-show="item.done"><input type="password" ng-model="item.value" /></td>
-                            <td ng-show="item.isProtect"><input type="checkbox" ng-model="item.done" /></td>
-                            <td ng-hide="item.isProtect"></td>
+                            <td ng-hide="item.isHidden">{{item.value}}</td>
+                            <td ng-show="item.isHidden"><input type="password" ng-model="item.value" /></td>
+                            <td ng-show="item.isProtected"><input type="checkbox" ng-model="item.isHidden" /></td>
+                            <td ng-hide="item.isProtected"></td>
                     </tr>
             </tbody>
         </table>
