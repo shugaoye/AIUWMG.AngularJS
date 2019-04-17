@@ -3,13 +3,14 @@
 <head>
     <title>entryDetails</title>
     <script>
-        var model = /*GUMIWA_JsonData*/ {
-            title: "PassXYZ",
-            items: [{ key: "Username", value: "PassXYZ", isProtected: false, isHidden: false },
-                { key: "Password", value: "87654321", isProtected: true, isHidden: true },
-                { key: "Mobile", value: "123456789", isProtected: false, isHidden: false },
-                { key: "PIN", value: "1234", isProtected: true, isHidden: true },
-                { key: "Url", value: "http://passxyz.github.io", isProtected: false, isHidden: false }]
+        var model = //GUMIWA_JsonData 
+        {
+            Title: "PassXYZ",
+            Items: [{ Key: "Username", Value: "PassXYZ", IsProtected: false, IsHidden: false },
+                { Key: "Password", Value: "87654321", IsProtected: true, IsHidden: true },
+                { Key: "Mobile", Value: "123456789", IsProtected: false, IsHidden: false },
+                { Key: "PIN", Value: "1234", IsProtected: true, IsHidden: true },
+                { Key: "Url", Value: "http://passxyz.github.io", IsProtected: false, IsHidden: false }]
         };
     </script>
         <script type="text/javascript">
@@ -127,23 +128,20 @@
             <table class="table table-striped">
             <tbody>
                     <tr ng-repeat=
-                        "item in details.items">
-                            <td><b>{{item.key}}</b></td>
-                            <td ng-hide="item.isHidden">{{item.value}}</td>
-                            <td ng-show="item.isHidden"><input type="password" ng-model="item.value" /></td>
-                            <td ng-show="item.isProtected"><input type="checkbox" ng-model="item.isHidden" /></td>
-                            <td ng-hide="item.isProtected"></td>
+                        "item in details.Items">
+                            <td><b>{{item.Key}}</b></td>
+                            <td ng-hide="item.IsHidden">{{item.Value}}</td>
+                            <td ng-show="item.IsHidden"><input type="password" ng-model="item.Value" /></td>
+                            <td ng-show="item.IsProtected"><input type="checkbox" ng-model="item.IsHidden" /></td>
+                            <td ng-hide="item.IsProtected"></td>
                     </tr>
             </tbody>
         </table>
 
         <hr>
         <!--GUMIWA_Notes-->
-        With Bootstrap 3 you can also create responsive tables to enable horizontal scrolling on small devices (screen width under 768px). However, viewing responsive tables on other devices having screen width larger than 768px, you will not see any difference.
         <hr>
         <!--GUMIWA_Attachments-->
-        Place Attachments here.
-        <hr>
         <div id="log"></div>
         <!-- 
         <div class="checkbox-inline">

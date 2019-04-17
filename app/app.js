@@ -7,7 +7,7 @@ entryDetails.filter("checkedItems", function () {
     return function (items, showComplete) {
         var resultArr = [];
         angular.forEach(items, function (item) {
-            if (item.isHidden == false || showComplete == true) {
+            if (item.IsHidden == false || showComplete == true) {
                 resultArr.push(item);
             }
         });
@@ -20,8 +20,8 @@ function DetailsController ($scope) {
 
     $scope.incompleteCount = function () {
         var count = 0;
-        angular.forEach($scope.details.items, function (item) {
-            if (!item.isHidden) { count++ }
+        angular.forEach($scope.details.Items, function (item) {
+            if (!item.IsHidden) { count++ }
         });
         return count;
     }
@@ -31,7 +31,7 @@ function DetailsController ($scope) {
     }
 
     $scope.addNewItem = function (keyText) {
-        $scope.details.items.push({ key: keyText, isHidden: false });
+        $scope.details.Items.push({ Key: keyText, IsHidden: false });
     }
 
 }
